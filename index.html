@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SettleSpace - Find Your Perfect Home in India</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-home"></i>
+                <span>SettleSpace</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="properties.html" class="nav-link">Properties</a>
+                <a href="#" class="nav-link" id="dashboard-link" style="display: none;">Dashboard</a>
+                <a href="login.html" class="nav-link" id="login-link">Login</a>
+                <a href="register.html" class="nav-link" id="register-link">Register</a>
+                <a href="#" class="nav-link" id="logout-link" style="display: none;">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider" id="hero-slider">
+            <div class="slide active" style="background-image: url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content">
+                    <h1>Find Your Dream Home in India</h1>
+                    <p>Discover premium properties across Mumbai, Delhi, Bangalore, and more</p>
+                    <button class="cta-button">Explore Properties</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content">
+                    <h1>Luxury Living Redefined</h1>
+                    <p>Experience modern amenities and prime locations</p>
+                    <button class="cta-button">View Luxury Homes</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content">
+                    <h1>Trusted Real Estate Platform</h1>
+                    <p>Connect with verified sellers and find your perfect match</p>
+                    <button class="cta-button">Get Started</button>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn prev" id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next" id="next-slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Quick Search -->
+    <section class="quick-search">
+        <div class="container">
+            <div class="search-card glass-card">
+                <h2>Find Your Perfect Property</h2>
+                <form class="search-form" id="quick-search-form">
+                    <div class="search-row">
+                        <div class="search-group">
+                            <select name="transaction_type" id="transaction-type">
+                                <option value="">Buy/Rent</option>
+                                <option value="sale">Buy</option>
+                                <option value="rent">Rent</option>
+                            </select>
+                        </div>
+                        <div class="search-group">
+                            <select name="property_type" id="property-type">
+                                <option value="">Property Type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="villa">Villa</option>
+                                <option value="plot">Plot</option>
+                                <option value="commercial">Commercial</option>
+                            </select>
+                        </div>
+                        <div class="search-group">
+                            <input type="text" placeholder="Location" id="location-search">
+                        </div>
+                        <div class="search-group">
+                            <select name="price_range" id="price-range">
+                                <option value="">Price Range</option>
+                                <option value="0-1000000">Under ₹10 Lakh</option>
+                                <option value="1000000-5000000">₹10L - ₹50L</option>
+                                <option value="5000000-10000000">₹50L - ₹1Cr</option>
+                                <option value="10000000-50000000">₹1Cr - ₹5Cr</option>
+                                <option value="50000000-999999999">Above ₹5Cr</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured-properties">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <p>Handpicked premium properties just for you</p>
+            </div>
+            <div class="properties-grid" id="featured-properties">
+                <!-- Properties will be loaded here -->
+            </div>
+            <div class="section-footer">
+                <a href="properties.html" class="view-all-btn">View All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-properties">500+</h3>
+                        <p>Properties Listed</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-users">1000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-deals">200+</h3>
+                        <p>Deals Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>50+</h3>
+                        <p>Cities Covered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-home"></i>
+                        <span>SettleSpace</span>
+                    </div>
+                    <p>Your trusted partner in finding the perfect property in India. We connect buyers, sellers, and renters with verified listings and expert guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Property Types</h3>
+                    <ul>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Villas</a></li>
+                        <li><a href="#">Commercial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91-8000-800-800</li>
+                        <li><i class="fas fa-envelope"></i> info@settlespace.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SettleSpace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>SettleSpace AI</span>
+            </div>
+            <button class="chatbot-minimize" id="chatbot-minimize">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hello! I'm your SettleSpace AI assistant. I can help you find properties, answer questions, and provide real estate guidance. How can I help you today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Ask me about properties...">
+            <button id="chatbot-send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="chatbot-toggle" id="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="static/js/script.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/chatbot.js"></script>
+</body>
+</html>

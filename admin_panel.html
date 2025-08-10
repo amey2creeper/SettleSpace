@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - SettleSpace</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-home"></i>
+                <span>SettleSpace</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link">Properties</a>
+                <a href="#" class="nav-link active" id="dashboard-link">Admin Panel</a>
+                <a href="#" class="nav-link" id="logout-link">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-info">
+                    <h1>Admin Panel</h1>
+                    <p>Manage users, properties, and platform operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Stats -->
+    <section class="dashboard-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-users">0</h3>
+                        <p>Total Users</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon active">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-properties">0</h3>
+                        <p>Total Properties</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="pending-approvals">0</h3>
+                        <p>Pending Approvals</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon revenue">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-revenue">₹0</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Tabs -->
+    <section class="dashboard-content">
+        <div class="container">
+            <div class="admin-tabs">
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="pending-properties">Pending Properties</button>
+                    <button class="tab-btn" data-tab="all-properties">All Properties</button>
+                    <button class="tab-btn" data-tab="users">Users</button>
+                    <button class="tab-btn" data-tab="payments">Payments</button>
+                </div>
+
+                <!-- Pending Properties Tab -->
+                <div class="tab-content active" id="pending-properties">
+                    <div class="dashboard-card glass-card">
+                        <div class="card-header">
+                            <h2>Pending Property Approvals</h2>
+                            <span class="pending-count" id="pending-count">0 pending</span>
+                        </div>
+                        <div class="table-responsive" id="pending-properties-table">
+                            <!-- Pending properties will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- All Properties Tab -->
+                <div class="tab-content" id="all-properties">
+                    <div class="dashboard-card glass-card">
+                        <div class="card-header">
+                            <h2>All Properties</h2>
+                            <div class="card-filters">
+                                <select id="all-properties-filter">
+                                    <option value="all">All Status</option>
+                                    <option value="approved">Approved</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="rejected">Rejected</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive" id="all-properties-table">
+                            <!-- All properties will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Tab -->
+                <div class="tab-content" id="users">
+                    <div class="dashboard-card glass-card">
+                        <div class="card-header">
+                            <h2>User Management</h2>
+                            <div class="card-filters">
+                                <select id="users-filter">
+                                    <option value="all">All Users</option>
+                                    <option value="buyer">Buyers</option>
+                                    <option value="seller">Sellers</option>
+                                    <option value="admin">Admins</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive" id="users-table">
+                            <!-- Users will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Tab -->
+                <div class="tab-content" id="payments">
+                    <div class="dashboard-card glass-card">
+                        <div class="card-header">
+                            <h2>Payment Management</h2>
+                            <div class="card-filters">
+                                <select id="payments-filter">
+                                    <option value="all">All Payments</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="pending">Pending</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive" id="payments-table">
+                            <!-- Payments will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Detail Modal -->
+    <div class="modal" id="property-detail-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Property Details</h3>
+                <button class="modal-close" id="close-property-detail-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="property-detail-content">
+                <!-- Property details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-home"></i>
+                        <span>SettleSpace</span>
+                    </div>
+                    <p>Your trusted partner in finding the perfect property in India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91-8000-800-800</li>
+                        <li><i class="fas fa-envelope"></i> info@settlespace.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SettleSpace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="static/js/script.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/admin-panel.js"></script>
+</body>
+</html>

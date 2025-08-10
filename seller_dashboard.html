@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - SettleSpace</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-home"></i>
+                <span>SettleSpace</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link">Properties</a>
+                <a href="#" class="nav-link active" id="dashboard-link">Dashboard</a>
+                <a href="#" class="nav-link" id="logout-link">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-info">
+                    <h1>Seller Dashboard</h1>
+                    <p>Manage your property listings and track performance</p>
+                </div>
+                <button class="add-property-btn" id="add-property-btn">
+                    <i class="fas fa-plus"></i> Add New Property
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Stats -->
+    <section class="dashboard-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-listings">0</h3>
+                        <p>Total Listings</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon active">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="active-listings">0</h3>
+                        <p>Active Listings</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="pending-listings">0</h3>
+                        <p>Pending Approval</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon views">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-views">0</h3>
+                        <p>Total Views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Management -->
+    <section class="dashboard-content">
+        <div class="container">
+            <div class="dashboard-card glass-card">
+                <div class="card-header">
+                    <h2>Your Properties</h2>
+                    <div class="card-filters">
+                        <select id="property-filter">
+                            <option value="all">All Properties</option>
+                            <option value="approved">Active</option>
+                            <option value="pending">Pending</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="properties-table">
+                    <div class="table-responsive" id="properties-table">
+                        <!-- Properties table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Property Modal -->
+    <div class="modal" id="add-property-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Add New Property</h3>
+                <button class="modal-close" id="close-add-property-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="add-property-form" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="property-title">Property Title</label>
+                            <input type="text" id="property-title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="property-type">Property Type</label>
+                            <select id="property-type" name="property_type" required>
+                                <option value="">Select Type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="villa">Villa</option>
+                                <option value="plot">Plot</option>
+                                <option value="commercial">Commercial</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="transaction-type">Transaction Type</label>
+                            <select id="transaction-type" name="transaction_type" required>
+                                <option value="">Select Type</option>
+                                <option value="sale">Sale</option>
+                                <option value="rent">Rent</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="property-price">Price (₹)</label>
+                            <input type="number" id="property-price" name="price" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="property-area">Area (sq ft)</label>
+                            <input type="number" id="property-area" name="area" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="property-location">Location</label>
+                            <input type="text" id="property-location" name="location" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="property-bedrooms">Bedrooms</label>
+                            <input type="number" id="property-bedrooms" name="bedrooms">
+                        </div>
+                        <div class="form-group">
+                            <label for="property-bathrooms">Bathrooms</label>
+                            <input type="number" id="property-bathrooms" name="bathrooms">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="property-description">Description</label>
+                        <textarea id="property-description" name="description" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="property-amenities">Amenities (comma separated)</label>
+                        <input type="text" id="property-amenities" name="amenities" placeholder="e.g., Swimming Pool, Gym, Parking">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="property-images">Property Images</label>
+                        <input type="file" id="property-images" name="images" multiple accept="image/*">
+                        <small>Upload multiple images (max 5)</small>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" id="cancel-add-property">Cancel</button>
+                        <button type="submit" class="submit-btn">Add Property</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Property Modal -->
+    <div class="modal" id="edit-property-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Edit Property</h3>
+                <button class="modal-close" id="close-edit-property-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-property-form">
+                    <!-- Form fields will be populated dynamically -->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-home"></i>
+                        <span>SettleSpace</span>
+                    </div>
+                    <p>Your trusted partner in finding the perfect property in India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91-8000-800-800</li>
+                        <li><i class="fas fa-envelope"></i> info@settlespace.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SettleSpace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="static/js/script.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/seller-dashboard.js"></script>
+</body>
+</html>

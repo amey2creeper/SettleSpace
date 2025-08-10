@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - SettleSpace</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-home"></i>
+                <span>SettleSpace</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link active">Properties</a>
+                <a href="#" class="nav-link" id="dashboard-link" style="display: none;">Dashboard</a>
+                <a href="login.html" class="nav-link" id="login-link">Login</a>
+                <a href="register.html" class="nav-link" id="register-link">Register</a>
+                <a href="#" class="nav-link" id="logout-link" style="display: none;">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>All Properties</h1>
+            <p>Discover your perfect property from our extensive collection</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-card glass-card">
+                <div class="filter-header">
+                    <h3>Filter Properties</h3>
+                    <button class="filter-reset" id="reset-filters">Reset All</button>
+                </div>
+                <form class="filter-form" id="property-filters">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label>Transaction Type</label>
+                            <select name="transaction_type" id="filter-transaction-type">
+                                <option value="">All</option>
+                                <option value="sale">Buy</option>
+                                <option value="rent">Rent</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Property Type</label>
+                            <select name="property_type" id="filter-property-type">
+                                <option value="">All Types</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="villa">Villa</option>
+                                <option value="plot">Plot</option>
+                                <option value="commercial">Commercial</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Location</label>
+                            <input type="text" placeholder="Enter location" id="filter-location">
+                        </div>
+                        <div class="filter-group">
+                            <label>Price Range</label>
+                            <select name="price_range" id="filter-price-range">
+                                <option value="">All Prices</option>
+                                <option value="0-1000000">Under ₹10 Lakh</option>
+                                <option value="1000000-5000000">₹10L - ₹50L</option>
+                                <option value="5000000-10000000">₹50L - ₹1Cr</option>
+                                <option value="10000000-50000000">₹1Cr - ₹5Cr</option>
+                                <option value="50000000-999999999">Above ₹5Cr</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Bedrooms</label>
+                            <select name="bedrooms" id="filter-bedrooms">
+                                <option value="">Any</option>
+                                <option value="1">1 BHK</option>
+                                <option value="2">2 BHK</option>
+                                <option value="3">3 BHK</option>
+                                <option value="4">4+ BHK</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Sort By</label>
+                            <select name="sort" id="filter-sort">
+                                <option value="newest">Newest First</option>
+                                <option value="price_low">Price: Low to High</option>
+                                <option value="price_high">Price: High to Low</option>
+                                <option value="area_large">Area: Large to Small</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties">
+        <div class="container">
+            <div class="properties-header">
+                <div class="results-count">
+                    <span id="results-count">Loading properties...</span>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="properties-grid" id="properties-grid">
+                <!-- Properties will be loaded here -->
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-home"></i>
+                        <span>SettleSpace</span>
+                    </div>
+                    <p>Your trusted partner in finding the perfect property in India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91-8000-800-800</li>
+                        <li><i class="fas fa-envelope"></i> info@settlespace.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SettleSpace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>SettleSpace AI</span>
+            </div>
+            <button class="chatbot-minimize" id="chatbot-minimize">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>I can help you find the perfect property! Try asking me about specific locations, price ranges, or property types.</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Ask me about properties...">
+            <button id="chatbot-send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="chatbot-toggle" id="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="static/js/script.js"></script>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/properties.js"></script>
+    <script src="static/js/chatbot.js"></script>
+</body>
+</html>
